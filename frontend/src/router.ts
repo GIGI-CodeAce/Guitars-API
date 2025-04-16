@@ -2,6 +2,8 @@
 import showGuitar from './components/showGuitar.vue'
 import showGuitars from './components/showGuitars.vue'
 import deleteGuitar from './components/deleteGuitar.vue'
+import editGuitar from './components/editGuitar.vue'
+import addGuitar from './components/addGuitar.vue'
 import home from './components/home.vue'
 
 const routes = [
@@ -25,6 +27,16 @@ const routes = [
     name: 'guitarDelete',
     component: deleteGuitar
   },  
+  {
+    path: '/guitars/:id/edit',
+    name: 'guitarEdit',
+    component: editGuitar
+  }, 
+  {
+    path: '/guitars/add',
+    name: 'guitarAdd',
+    component: addGuitar
+  }, 
 ]
 
 const router = createRouter({

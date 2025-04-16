@@ -5,6 +5,7 @@
     <p><strong>Make:</strong><hr/> {{ guitar.make }}</p>
     <p class="mb-4"><strong>Model:</strong><hr/>  {{ guitar.model }}</p>
       <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1" :to="`/guitars/${guitar.id}/delete`">Delete Guitar</router-link>
+      <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1" :to="`/guitars/${guitar.id}/edit`">Edit Guitar</router-link>
       <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1" to="/guitars">Go to Guitars</router-link>
   </div>
   <div v-else>

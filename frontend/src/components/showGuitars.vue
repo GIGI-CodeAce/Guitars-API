@@ -7,6 +7,7 @@
         </li>
       </ul>
     </div>
+    <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-6" to="/guitars/add">Add guitar</router-link>
   </template>
   
   <script setup lang="ts">

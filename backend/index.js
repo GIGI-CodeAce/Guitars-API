@@ -31,7 +31,7 @@ app.delete('/guitars/:id', (req, res) => {
   }
 
   guitars.splice(index, 1)
-  res.status(204).end() // 204 No Content
+  res.status(204).end()
 })
 
 app.post('/guitars', (req, res) => {
@@ -49,6 +49,26 @@ app.post('/guitars', (req, res) => {
 
   guitars.push(newGuitar)
   res.status(201).json(newGuitar)
+})
+
+
+app.put('/guitars/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10)
+  const guitar = guitars.find(g => g.id === id)
+
+  if (!guitar) {
+    return res.status(404).json({ error: 'Guitar not found' })
+  }
+
+  const { make, model } = req.body
+  if (!make || !model) {
+    return res.status(400).json({ error: 'Make and model are required' })
+  }
+
+  guitar.make = make
+  guitar.model = model
+
+  res.json(guitar)
 })
 
 app.listen(port, () => {
