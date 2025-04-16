@@ -1,6 +1,7 @@
  import { createRouter, createWebHistory } from 'vue-router'
 import showGuitar from './components/showGuitar.vue'
 import showGuitars from './components/showGuitars.vue'
+import deleteGuitar from './components/deleteGuitar.vue'
 import home from './components/home.vue'
 
 const routes = [
@@ -18,6 +19,11 @@ const routes = [
     path: '/guitars/:id',
     name: 'guitarDetail',
     component: showGuitar
+  },  
+  {
+    path: '/guitars/:id/delete',
+    name: 'guitarDelete',
+    component: deleteGuitar
   },  
 ]
 

@@ -2,13 +2,18 @@ let id = 1
 function newId(){
     return id++
 }
-
 export const guitars = [
-    {id: newId(), make: 'Fender', model: 'Strat'},
-    {id: newId(), make: 'PRS', model: 'Starla'},
-    {id: newId(), make: 'BMW', model: 'Les Paul'},
-]
-
+    { id: newId(), make: 'Fender', model: 'Strat' },
+    { id: newId(), make: 'PRS', model: 'Starla' },
+    { id: newId(), make: 'BMW', model: 'Les Paul' },
+    { id: newId(), make: 'Gibson', model: 'SG Standard' },
+    { id: newId(), make: 'Ibanez', model: 'RG550' },
+    { id: newId(), make: 'Jackson', model: 'Soloist' },
+    { id: newId(), make: 'ESP', model: 'Eclipse' },
+    { id: newId(), make: 'Yamaha', model: 'Pacifica' },
+    { id: newId(), make: 'Gretsch', model: 'White Falcon' }
+  ]
+  
 export function addGuitar(make,model){
     const guitar = {
         id: newId(), make: make, model: model

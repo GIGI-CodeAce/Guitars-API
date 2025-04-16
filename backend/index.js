@@ -1,6 +1,6 @@
 import express from 'express'
 import cors from 'cors'
-import { guitars,getAll,addGuitar,removeGuitar } from './model.js'
+import { guitars} from './model.js'
 const app = express()
 const port = 3000
 
@@ -22,10 +22,16 @@ app.get('/guitars/:id', (req, res) => {
   res.json(guitar)
 })
 
-app.get('/guitars/delete', (req, res) => {
-  removeGuitar(guitars)
+app.delete('/guitars/:id', (req, res) => {
+  const id = parseInt(req.params.id, 10)
+  const index = guitars.findIndex(g => g.id === id)
 
-  res.json(guitars)
+  if (index === -1) {
+    return res.status(404).json({ error: 'Guitar not found' })
+  }
+
+  guitars.splice(index, 1)
+  res.status(204).end() // 204 No Content
 })
 
 app.post('/guitars', (req, res) => {
