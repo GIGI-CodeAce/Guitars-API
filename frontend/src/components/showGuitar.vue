@@ -4,9 +4,9 @@
     <h1>🎸 Guitar Details</h1>
     <p><strong>Make:</strong><hr/> {{ guitar.make }}</p>
     <p class="mb-4"><strong>Model:</strong><hr/>  {{ guitar.model }}</p>
-      <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1" :to="`/guitars/${guitar.id}/delete`">Delete Guitar</router-link>
-      <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1" :to="`/guitars/${guitar.id}/edit`">Edit Guitar</router-link>
-      <router-link class="bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1" to="/guitars">Go to Guitars</router-link>
+      <router-link :class="linkStyle" :to="`/guitars/${guitar._id}/delete`">Delete Guitar</router-link>
+      <router-link :class="linkStyle" :to="`/guitars/${guitar._id}/edit`">Edit Guitar</router-link>
+      <router-link :class="linkStyle" to="/guitars">Go to Guitars</router-link>
   </div>
   <div v-else>
     <p>Loading guitar...</p>
@@ -19,13 +19,14 @@ import { ref, onMounted } from 'vue'
 import { useRoute } from 'vue-router'
 
 interface Guitar {
-  id: number
+  _id: string
   make: string
   model: string
 }
 
 const guitar = ref<Guitar | null>(null)
 const route = useRoute()
+const linkStyle = "bg-green-700 p-[6px] hover:text-white transition-colors rounded-2xl m-1"
 
 onMounted(async () => {
   const id = route.params.id

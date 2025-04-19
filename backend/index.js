@@ -27,7 +27,7 @@ app.get('/guitars/:id', async (req, res) => {
   try {
     const guitar = await Guitar.findById(req.params.id)
     if (!guitar) return res.status(404).json({ error: 'Guitar not found' })
-    res.json(guitar)
+      res.json(guitar)
   } catch {
     res.status(400).json({ error: 'Invalid ID format' })
   }

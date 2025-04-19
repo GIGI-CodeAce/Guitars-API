@@ -2,6 +2,7 @@
     <main class="p-4 text-[1.2em] font-medium">
       <div class="bg-green-600 rounded-xl p-3" v-if="guitar">
         <h1>🎸 Guitar Details</h1>
+        <h4 class="text-[0.8em]">ID: {{ guitar._id }}</h4>
         <input v-model="guitar.make" :class="inputStyle" />
         <input v-model="guitar.model" :class="inputStyle"  />
         <button
@@ -26,7 +27,7 @@ import { ref, onMounted } from 'vue'
 import { useRoute, useRouter } from 'vue-router'
 
 interface Guitar {
-  id: number
+  _id: string
   make: string
   model: string
 }
@@ -49,7 +50,7 @@ onMounted(async () => {
 
 const updateGuitar = async () => {
   if (!guitar.value) return
-  const res = await fetch(`http://localhost:3000/guitars/${guitar.value.id}`, {
+  const res = await fetch(`http://localhost:3000/guitars/${guitar.value._id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify({
